@@ -34,7 +34,7 @@ function About() {
     return ( 
         <>
         <div className="flex justify-center">
-            <div className="w-[80%] border-b-2 bg-slate-300"></div>
+            <div className="w-[80%] h-[0.2px] bg-slate-300"></div>
         </div>
         <div className="h-auto pb-10 mt-10 text-white name grid grid-cols-2">
             <div>

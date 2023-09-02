@@ -10,3 +10,261 @@
 .glow:hover{
     box-shadow: 0 0 5px #8b31ff,0 0 25px #8b31ff,0 0 50px #8b31ff,0 0 100px #8b31ff,0 0 200px #8b31ff;
 }
+
+.shape{
+  border-radius: 34% 66% 84% 16% / 55% 59% 41% 45%;
+}
+
+  .bubbles{
+    position:absolute;
+    width: 100%;
+    height: 900px;
+    z-index:0;
+    overflow:hidden;
+    top:0;
+    left:0;
+  }
+  .bubble{
+    position: absolute;
+    bottom:-100px;
+    width:40px;
+    height: 40px;
+    background:#f1f1f1;
+    border-radius:50%;
+    opacity:0.1;
+    animation: rise 10s infinite ease-in;
+  }
+  .bubble:nth-child(1){
+    width:40px;
+    height:40px;
+    left:10%;
+    animation-duration:8s;
+  }
+  .bubble:nth-child(2){
+    width:20px;
+    height:20px;
+    left:20%;
+    animation-duration:5s;
+    animation-delay:1s;
+  }
+  .bubble:nth-child(3){
+    width:50px;
+    height:50px;
+    left:35%;
+    animation-duration:7s;
+    animation-delay:2s;
+  }
+  .bubble:nth-child(4){
+    width:80px;
+    height:80px;
+    left:50%;
+    animation-duration:11s;
+    animation-delay:0s;
+  }
+  .bubble:nth-child(5){
+    width:35px;
+    height:35px;
+    left:55%;
+    animation-duration:6s;
+    animation-delay:1s;
+  }
+  .bubble:nth-child(6){
+    width:45px;
+    height:45px;
+    left:65%;
+    animation-duration:8s;
+    animation-delay:3s;
+  }
+  .bubble:nth-child(7){
+    width:90px;
+    height:90px;
+    left:70%;
+    animation-duration:12s;
+    animation-delay:2s;
+  }
+  .bubble:nth-child(8){
+    width:25px;
+    height:25px;
+    left:80%;
+    animation-duration:6s;
+    animation-delay:2s;
+  }
+  .bubble:nth-child(9){
+    width:15px;
+    height:15px;
+    left:70%;
+    animation-duration:5s;
+    animation-delay:1s;
+  }
+  .bubble:nth-child(10){
+    width:90px;
+    height:90px;
+    left:25%;
+    animation-duration:10s;
+    animation-delay:4s;
+  }
+  @keyframes rise{
+    0%{
+      bottom:-100px;
+      transform:translateX(0);
+    }
+    50%{
+      transform:translate(100px);
+    }
+    100%{
+      bottom:900px;
+      transform:translateX(-200px);
+    }
+  }
+
+
+#box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: auto;
+  color: white;
+  background-size: cover;
+}
+.certificate-image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+.gradient-border {
+  --borderWidth: 3px;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  background-size: 300% 300%;
+  /* background: url("./assets/Certificates/Async.svg");
+  background-size: cover; Make sure the background image covers the area */
+  animation: animatedgradient 3s ease alternate infinite;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.cert-animation {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.top {
+  padding: 120px 0px 270px;
+  position: relative;
+  overflow-x: hidden;
+  background-color: rgb(115 6 255);
+}
+
+  .top .background {
+    position: absolute;
+    bottom: 0;
+    background: url("/footer/bg.png") no-repeat scroll center 0;
+    width: 100%;
+    height: 266px;
+  }
+
+  .top .background .background__one {
+    background: url("/footer/car.gif") no-repeat center center;
+    width: 330px;
+    height: 105px;
+    background-size: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    -webkit-animation: first 22s linear infinite;
+    animation: first 22s linear infinite;
+  }
+
+  .top .background .background__two {
+    background: url("/footer/cyclist.gif") no-repeat center center;
+    width: 88px;
+    height: 100px;
+    background-size: 100%;
+    bottom: 0;
+    left: 38%;
+    position: absolute;
+    -webkit-animation: first 30s linear infinite;
+    animation: first 30s linear infinite;
+  }
+
+@keyframes first {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgb(115 6 255);
+	/* background-color: #CCCCCC; */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+  border-radius: 10px;
+	/* background-color: #F5F5F5; */
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+	/* background-color: #FFF; */
+	background-image: -webkit-linear-gradient(90deg,
+  rgb(115 6 255) 0%,
+  rgb(115 6 255) 25%,
+											  transparent 100%,
+											  rgb(115 6 255) 75%,
+											  transparent)
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+  background-color: rgb(115 6 255);
+}
+
+.card{
+  background-color: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  -webkit-box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
+          box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
+  font-family: 'Poppins',sans-serif;
+}
+
+input:focus::placeholder,textarea:focus::placeholder{
+  color: transparent;
+}
