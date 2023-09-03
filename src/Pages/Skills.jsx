@@ -22,8 +22,8 @@ function Skills() {
                 <div class="bubble"></div>
             </div>
         </div>
-        <div className="w-full h-[650px] md:h-[800px] text-white name flex">
-            <div className="md:m-20 p-5 flex justify-center items-start flex-col gap-5 w-full md:w-[70%]">
+        <div className="w-full h-[650px] md:h-[800px] text-white name grid grid-cols-1 md:grid-cols-2">
+            <div className="md:m-20 p-5 flex justify-center items-start flex-col gap-5 w-full ">
                 <span>Skills</span>
                 <span className="text-4xl font-extrabold text-[#8b31ff]">My Skills</span>
                 <span className="md:w-[60%] w-full">
@@ -31,7 +31,7 @@ function Skills() {
                 </span>
                 <div className="w-full md:mt-10">
                     <span className="text-xl">Languages & Tools</span>
-                    <div className="w-full grid grid-cols-12 gap-1 py-6">
+                    <div className="w-full grid grid-cols-8 md:grid-cols-12 gap-1 py-6">
                         <img src={HtmlIcon} alt="HTML" />
                         <img src={CssIcon} alt="HTML" />
                         <img src={JSIcon} alt="HTML" />
@@ -40,7 +40,7 @@ function Skills() {
                         <img src={JSIcon} alt="HTML" />
                     </div>                                  
                     <span className="text-xl">Libraries & Frameworks</span>
-                    <div className="w-full grid grid-cols-12 gap-1 py-6">
+                    <div className="w-full grid grid-cols-8 md:grid-cols-12 gap-1 py-6">
                         <img src={HtmlIcon} alt="HTML"  />
                         <img src={CssIcon} alt="HTML" />
                         <img src={JSIcon} alt="HTML"  />
@@ -51,15 +51,15 @@ function Skills() {
                     <div className="w-full grid grid-cols-2">
                         <div >
                             <span className="text-xl">Databases</span>
-                            <div className="w-full grid grid-cols-7 gap-1 py-6">
+                            <div className="w-full grid grid-cols-4 md:grid-cols-7 gap-1 py-6">
                                 <img src={HtmlIcon} alt="HTML"  />
                                 <img src={CssIcon} alt="HTML" />
                                 <img src={JSIcon} alt="HTML" />
                             </div>                                  
                         </div>
-                        <div >
+                        <div className="md:-ml-40">
                             <span className="text-xl">Others</span>
-                            <div className="w-full grid grid-cols-5 gap-4 py-6">
+                            <div className="w-full grid grid-cols-4 md:grid-cols-9 gap-1 py-6 ">
                                 <img src={HtmlIcon} alt="HTML"  />
                                 <img src={CssIcon} alt="HTML" />
                                 <img src={JSIcon} alt="HTML" />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import EducationLogo from "../assets/education-hat.svg";
 import Programming from "../assets/web-programming.svg";
 import Projects from "../assets/atom.svg";
@@ -16,10 +16,10 @@ function About() {
     useEffect(() => {
         setData(() => {
             return [
-                { image : EducationLogo, count : 14, text : "+ Yrs Education" },
-                { image : Projects, count : 5, text : "+ Projects" },
-                { image : Certification, count : 10, text : "+ Certifications" },
-                { image : Tools, count : 30, text : "+ Tools" },
+                { image : EducationLogo, count : 14, text : "Yrs of Education" },
+                { image : Projects, count : 5, text : "Projects" },
+                { image : Certification, count : 10, text : "Certifications" },
+                { image : Tools, count : 30, text : "Tools" },
             ]
         })
         if(!readMore){
@@ -36,31 +36,33 @@ function About() {
         <div className="flex justify-center">
             <div className="w-[80%] h-[0.2px] bg-slate-300"></div>
         </div>
-        <div className="h-auto pb-10 mt-10 text-white name grid grid-cols-2">
-            <div>
-                <span className="font-bold ml-20 text-2xl text-[#8b31ff]">MySelf</span>
-                <h6 className="mt-5 ml-20 text-justify pr-20">
+        <div className="h-auto w-full pb-10 mt-10 text-white name grid grid-cols-1 md:grid-cols-2">
+            <div className="w-full">
+                <span className="font-bold ml-8 md:ml-20 text-2xl text-[#8b31ff]">MySelf</span>
+                <h6 className="md:mt-5 md:ml-20 text-justify md:pr-20 p-8 md:p-0">
                     {text}
                     <span className="cursor-pointer text-[#52317e] hover:text-[#8b31ff]" onClick={() => SetReadMore(!readMore) }>{readMore? "...Read Less" : "Read More..."}</span>
                 </h6>
-                <a href="https://ilaforplacements.com/api/pdf/s-santosh" target="_blank">
-                    <button className="mt-5 ml-20 glow border-[#8b31ff] border px-5 py-2 rounded-lg">GET MY CV</button>
-                </a>
+                <div className="mb-10 w-full h-[40%] flex justify-center md:items-center items-start">
+                    <a href="https://ilaforplacements.com/api/pdf/s-santosh" target="_blank">
+                        <button className="glow border-[#8b31ff] border px-5 py-2 rounded-lg">GET MY CV</button>
+                    </a>
+                </div>
             </div>
-            <div className="flex justify-evenly items-center ml-5">
-                <div className="grid grid-cols-2 gap-20">
+            <div className="md:flex justify-evenly items-center">
+                <div className="grid grid-cols-2 gap-5 md:gap-20">
                     {data.map((e,i) => <div key={i} className="flex justify-center items-center flex-col">
                         <img src={e.image} alt="Education Qualification" className="w-16 h-16" />
-                        <div>
-                            <CountUp end={e.count} duration={5} className="text-2xl" />
-                            <span className="text-2xl">{e.text}</span>
+                        <div className="flex">
+                            <CountUp end={e.count} duration={5} enableScrollSpy scrollSpyDelay="1000" className="text-lg md:text-2xl" />+
+                            <span className="text-lg md:text-2xl">{e.text}</span>
                         </div>
                     </div>)}
                 </div>
                 <div className="flex justify-center items-center flex-col">
                     <img src={Programming} alt="Education Qualification" className="w-16 h-16" />
                     <div>
-                        <CountUp end={8} duration={5} className="text-2xl" />
+                        <CountUp end={8} duration={5} enableScrollSpy scrollSpyDelay="1000" className="text-2xl" />
                         <span className="text-2xl">+ Programming Languages</span>
                     </div>
                 </div>

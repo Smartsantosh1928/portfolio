@@ -38,12 +38,12 @@ function Contact() {
         <div className="w-full h-[500px] md:p-10 grid grid-cols-1 md:grid-cols-2">
             <div className="m-auto">
                 <div className="flex justify-center items-center md:items-start flex-col">
-                    <span className="text-[rgb(115,6,255)] text-5xl font-extrabold">Contact</span>
+                    <span className="text-[rgb(115,6,255)] text-5xl font-extrabold mt-5 md:mt-0">Contact</span>
                     <span className="text-gray-100 ml-1 mt-5 mb-10 md:mb-0 text-xl font-light">Get In Touch</span>
                 </div>
-                <div className="w-60 bg-orange-500 h-60 left-[60%] md:left-[32%] absolute rounded-[50%]"></div>
+                <div className="w-56 md:w-60 bg-orange-500 h-60 left-[45%] md:left-[32%] absolute rounded-[50%]"></div>
                 <div className="flex justify-center items-start flex-col h-[500px]">
-                <div className="w-60 bg-pink-500 h-60 -left-8 md:left-12 mt-32  absolute rounded-[50%]"></div>
+                <div className="w-56 md:w-60 bg-pink-500 h-60 -left-8 md:left-12 mt-32  absolute rounded-[50%]"></div>
                     <div className="card flex justify-center items-center flex-col gap-3 mb-20 p-10 w-[400px] h-auto relative rounded-3xl">
                         <div className="mb-4 flex justify-start items-start flex-col">
                             <label class="hidden text-[rgb(149,88,229)] text-sm font-bold -mb-3" for="name">
