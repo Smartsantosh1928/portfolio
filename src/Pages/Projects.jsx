@@ -3,6 +3,7 @@ import Web3 from "../assets/Projects/Web3.png"
 import Kriyas from "../assets/Projects/Kriyas.png"
 import Stopwatch from "../assets/Projects/Stop.png"
 import { useState } from "react"
+import Tilt from 'react-parallax-tilt';
 
 function Projects() {
 
@@ -41,7 +42,7 @@ function Projects() {
 
     return ( 
         <>
-        <div className="flex justify-center">
+        <div id="PROJECTS" className="flex justify-center">
             <div className="w-[80%] h-[0.2px] bg-slate-300"></div>
         </div>
             <div className="w-full flex justify-center items-center mt-5 md:-mb-10">
@@ -49,7 +50,9 @@ function Projects() {
             </div>
         <div className="w-full h-auto p-10">
             <div className="w-full grid grid-cols-1 md:grid-cols-3 md:p-14 mb-10 md:mb-0 gap-10">
-                {projects.map(e =>  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                {projects.map(e =>  
+                <Tilt>
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href={e.url}>
                         <img class="rounded-t-lg" src={e.image} alt="Envirron.net" />
                     </a>
@@ -67,9 +70,12 @@ function Projects() {
                             </a>
                         </div>
                     </div>
-                </div>)}
+                </div>
+                </Tilt>
+                )}
             </div>
             <div className="flex justify-center items-center">
+                <Tilt>
                 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href={stopWatch.url}>
                         <img class="rounded-t-lg" src={stopWatch.image} alt="Envirron.net" />
@@ -93,6 +99,7 @@ function Projects() {
                         </div>
                     </div>
                 </div>
+                </Tilt>
             </div>
         </div>
         </>

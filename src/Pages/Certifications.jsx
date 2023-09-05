@@ -12,7 +12,7 @@ function Certifications() {
 
     return ( 
         <>
-        <div className="flex justify-center">
+        <div id="CERTIFICATIONS" className="flex justify-center">
             <div className="w-[80%] h-[0.2px] bg-slate-300"></div>
         </div>
         <div className="flex justify-center items-center mt-5 md:mt-10">

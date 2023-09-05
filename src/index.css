@@ -11,6 +11,18 @@
     box-shadow: 0 0 5px #8b31ff,0 0 25px #8b31ff,0 0 50px #8b31ff,0 0 100px #8b31ff,0 0 200px #8b31ff;
 }
 
+.sign{
+  stroke-dasharray: 1199;
+  stroke-dashoffset: 1199;
+  animation: signature 1.5s ease 1s forwards;
+}
+
+@keyframes signature {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 .shape{
   border-radius: 34% 66% 84% 16% / 55% 59% 41% 45%;
 }
@@ -18,7 +30,7 @@
   .bubbles{
     position:absolute;
     width: 100%;
-    height: 900px;
+    /* height: 900px; */
     z-index:0;
     overflow:hidden;
     top:0;

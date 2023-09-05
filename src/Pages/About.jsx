@@ -33,7 +33,7 @@ function About() {
 
     return ( 
         <>
-        <div className="flex justify-center">
+        <div id="ABOUT" className="flex justify-center">
             <div className="w-[80%] h-[0.2px] bg-slate-300"></div>
         </div>
         <div className="h-auto w-full pb-10 mt-10 text-white name grid grid-cols-1 md:grid-cols-2">
