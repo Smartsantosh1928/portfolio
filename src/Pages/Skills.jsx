@@ -40,7 +40,7 @@ function Skills() {
             <div className="w-[80%] h-[0.2px] bg-slate-300"></div>
         </div>
         <div className="relative">
-            <div class="bubbles h-[800px]">
+            <div class="bubbles h-[850px] md:h-[800px]">
                 <div class="bubble"></div>
                 <div class="bubble"></div>
                 <div class="bubble"></div>
@@ -53,7 +53,7 @@ function Skills() {
                 <div class="bubble"></div>
             </div>
         </div>
-        <div className="w-full h-[800px] text-white name grid grid-cols-1 md:grid-cols-2">
+        <div className="w-full h-[850px] md:h-[800px] text-white name grid grid-cols-1 md:grid-cols-2">
             <div className="md:m-20 p-5 flex justify-center items-start flex-col gap-5 w-full ">
                 <span>Skills</span>
                 <span className="text-4xl font-extrabold text-[#8b31ff]">My Skills</span>

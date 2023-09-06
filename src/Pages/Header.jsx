@@ -63,7 +63,7 @@ function Header() {
                 <audio ref={audioRef} onEnded={handleAudioEnd}>
                     <source src={music} type="audio/mpeg" />
                 </audio>
-                <div className={`${isOpen ? '-mr-10 z-10 card w-full h-screen mt-[548px]' : ' hidden md:flex'}`}>
+                <div className={`${isOpen ? '-mr-10 z-10 card w-full h-screen mt-[850px]' : ' hidden md:flex'}`}>
                     {isOpen && 
                     <div className='text-[#51b2b2] mt-5 mr-10 flex justify-end md:hidden cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className='w-10 h-10 mt-3' fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
