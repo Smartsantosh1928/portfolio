@@ -5,11 +5,18 @@ import Skills from "./Pages/Skills"
 import Certifications from "./Pages/Certifications"
 import Projects from "./Pages/Projects"
 import Contact from "./Pages/Contact"
+import Aos from "aos"
+import { useEffect } from "react"
 
 function App() {
+
+  useEffect(() => {
+    Aos.init()
+  }, [])
+
   return(
     <>
-      <div className="bg-[#120e16]">
+      <div className="bg-[#120e16] overflow-x-hidden">
         <Header/>
         <Main/>
         <About/>
