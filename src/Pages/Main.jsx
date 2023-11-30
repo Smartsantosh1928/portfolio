@@ -41,7 +41,7 @@ function Main() {
                 </div>
                 <div >
                     <span className="mr-3">I'm an Aspiring</span>
-                    <span ref={el}></span>
+                    <span ref={el} ></span>
                     <span className="mr-3">{" "}Developer</span>
                 </div>
                 <div className="flex justify-center items-center gap-3 mt-5 text-white">

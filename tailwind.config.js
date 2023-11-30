@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         'urban': ['Urbanist', 'sans-serif'],
+        'edu': ['Edu SA Beginner', 'cursive'],
       }
     },
   },

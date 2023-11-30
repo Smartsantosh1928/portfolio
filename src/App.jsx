@@ -5,25 +5,44 @@ import Skills from "./Pages/Skills"
 import Certifications from "./Pages/Certifications"
 import Projects from "./Pages/Projects"
 import Contact from "./Pages/Contact"
+import Loading from "./Pages/Loader"
 import Aos from "aos"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 function App() {
 
-  useEffect(() => {
+  const [ loading, setLoading ] = useState(true)
+
+  window.onload = () => {
+    setLoading(false)
+  }
+
+  useEffect(() => { 
+    // const loader = setTimeout(() => {
+    //   setLoading(false)
+    // }, 3000)
     Aos.init()
+    // return () => {
+    //   clearTimeout(loader)
+    // }
   }, [])
+
 
   return(
     <>
       <div className="bg-[#120e16] overflow-x-hidden">
-        <Header/>
-        <Main/>
-        <About/>
-        <Skills/>
-        <Certifications/>
-        <Projects/>
-        <Contact/>
+        {
+          loading ? 
+          <Loading/>
+          : <><Header/>
+          <Main/>
+          <About/>
+          <Skills/>
+          <Certifications/>
+          <Projects/>
+          <Contact/></>
+        }
+        
       </div>
     </>
   )  

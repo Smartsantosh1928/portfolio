@@ -23,7 +23,7 @@ function Header() {
     return ( 
         <>
         <div id='HOME' className={`h-16 sticky top-0 z-30 mt-3 w-full text-xl flex justify-start items-center name`}>
-            <div className='w-full flex justify-end mr-3'>
+            <div className='w-full flex justify-end'>
                 {
                     isPlaying 
                     ? <img src={myGIF} alt="gif" className='w-20 h-20 cursor-pointer' onClick={toggleGif} />
@@ -33,7 +33,7 @@ function Header() {
                     <source src={music} type="audio/mpeg" />
                 </audio>
             </div>
-            <button className="w-48 mr-5 glow border-[#8b31ff] border px-5 py-2 rounded-lg text-white">GET In Touch</button>
+            <button className="mr-5 glow border-[#8b31ff] border text-white w-[60%] md:w-48" >GET In Touch</button>
         </div>
         </>
      );

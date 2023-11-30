@@ -1,9 +1,10 @@
 import { useEffect, useState,useRef } from "react";
-import EducationLogo from "../assets/education-hat.svg";
-import Programming from "../assets/web-programming.svg";
-import Projects from "../assets/atom.svg";
-import Tools from "../assets/painting-tools.svg";
-import Certification from "../assets/certification.svg";
+import EducationLogo from "/about/edu.png";
+import Programming from "/about/program.png";
+import Projects from "/about/project.png";
+import Tools from "/about/tools.png";
+import Certification from "/about/cert.png";
+import Leetcode from "/about/leetcode.png";
 import CountUp from "react-countup";
 
 function About() {
@@ -12,6 +13,21 @@ function About() {
     const [ text, setText ] = useState("")
     const [ readMore, SetReadMore ] = useState(false)
     const [ data, setData ] = useState([])
+    const [ solutions, setSolutions ] = useState([])
+
+    useEffect(() => {
+        fetch("https://leetcodestats.cyclic.app/smartsantosh1928",{
+            method : "GET",
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            setSolutions(data.totalSolved);
+        })
+        .catch(err => console.log(err))
+    },[])
 
     useEffect(() => {
         setData(() => {
@@ -20,6 +36,8 @@ function About() {
                 { image : Projects, count : 5, text : "Projects" },
                 { image : Certification, count : 10, text : "Certifications" },
                 { image : Tools, count : 30, text : "Tools" },
+                { image : Programming, count : 8, text : "Programming Languages" },
+                { image : Leetcode, count : solutions-1, text : "Leetcode Solutions" },
             ]
         })
         if(!readMore){
@@ -29,42 +47,35 @@ function About() {
         else{
             setText(originalText)
         }
-    },[readMore])
+    },[readMore,solutions])
 
     return ( 
         <>
-        <div id="ABOUT" className="flex justify-center">
-            <div className="w-[80%] h-[0.2px] bg-slate-300"></div>
-        </div>
-        <div className="h-auto w-full pb-10 mt-10 text-white name grid grid-cols-1 md:grid-cols-2">
-            <div className="w-full">
-                <span className="font-bold ml-8 md:ml-20 text-2xl text-[#8b31ff]">MySelf</span>
-                <h6 className="md:mt-5 md:ml-20 text-justify md:pr-20 p-8 md:p-0">
+        <div className="h-auto w-full pb-10 text-white name flex justify-center items-center flex-col md:flex-row">
+            <div className="md:w-[40%] ml-8 md:ml-20">
+                <div className="flex flex-col gap-5">
+                    <span>About</span>
+                    <span className="font-bold text-4xl text-[#8b31ff]">MySelf</span>
+                </div>
+                <h6 className="md:mt-5 -ml-8 md:ml-0 text-justify text-xl md:pr-20 p-8 md:p-0">
                     {text}
                     <span className="cursor-pointer text-[#52317e] hover:text-[#8b31ff]" onClick={() => SetReadMore(!readMore) }>{readMore? "...Read Less" : "Read More..."}</span>
                 </h6>
-                <div className="mb-10 w-full h-[40%] flex justify-center md:items-center items-start">
+                <div className="mt-5 md:mt-10 w-full h-[40%] pb-10 md:pb-0 flex justify-center md:items-center items-start">
                     <a href="https://ilaforplacements.com/api/pdf/s-santosh" target="_blank">
-                        <button className="glow border-[#8b31ff] border px-5 py-2 rounded-lg">GET MY CV</button>
+                        <button className="glow border-[#8b31ff] border px-5 py-2 rounded-lg">Get My Resume</button>
                     </a>
                 </div>
             </div>
-            <div className="md:flex justify-evenly items-center">
-                <div className="grid grid-cols-2 gap-5 md:gap-20">
-                    {data.map((e,i) => <div key={i} className="flex justify-center items-center flex-col">
+            <div className="md:flex justify-evenly items-center w-[60%]">
+                <div className="grid grid-cols-2 gap-8 w-full">
+                    {data.map((e,i) => <div key={i} className="w-full flex justify-center items-center flex-col">
                         <img src={e.image} alt="Education Qualification" className="w-16 h-16" />
-                        <div className="flex">
-                            <CountUp end={e.count} duration={5} enableScrollSpy scrollSpyDelay="1000" className="text-lg md:text-2xl" />+
-                            <span className="text-lg md:text-2xl">{e.text}</span>
+                        <div className="text-center">
+                            <CountUp end={e.count} duration={2.5} enableScrollSpy scrollSpyDelay="1000" className="text-lg md:text-2xl" />
+                            <span className="text-lg md:text-2xl">+ {e.text}</span>
                         </div>
                     </div>)}
-                </div>
-                <div className="flex justify-center items-center flex-col">
-                    <img src={Programming} alt="Education Qualification" className="w-16 h-16" />
-                    <div>
-                        <CountUp end={8} duration={5} enableScrollSpy scrollSpyDelay="1000" className="text-2xl" />
-                        <span className="text-2xl">+ Programming Languages</span>
-                    </div>
                 </div>
             </div>
         </div>
