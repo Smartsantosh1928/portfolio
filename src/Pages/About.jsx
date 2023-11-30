@@ -24,7 +24,7 @@ function About() {
         })
         .then(res => res.json())
         .then(data => {
-            setSolutions(data.totalSolved);
+            setSolutions(data.totalSolved-1);
         })
         .catch(err => console.log(err))
     },[])
@@ -37,7 +37,7 @@ function About() {
                 { image : Certification, count : 10, text : "Certifications" },
                 { image : Tools, count : 30, text : "Tools" },
                 { image : Programming, count : 8, text : "Programming Languages" },
-                { image : Leetcode, count : solutions-1, text : "Leetcode Solutions" },
+                { image : Leetcode, count : solutions || 35, text : "Leetcode Solutions" },
             ]
         })
         if(!readMore){
