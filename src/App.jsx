@@ -18,13 +18,13 @@ function App() {
   }
 
   useEffect(() => { 
-    // const loader = setTimeout(() => {
-    //   setLoading(false)
-    // }, 3000)
+    const loader = setTimeout(() => {
+      setLoading(false)
+    }, 3000)
     Aos.init()
-    // return () => {
-    //   clearTimeout(loader)
-    // }
+    return () => {
+      clearTimeout(loader)
+    }
   }, [])
 
 
