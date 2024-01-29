@@ -10,6 +10,7 @@ html{
 
 body{
   font-family: 'Urbanist', sans-serif;
+  cursor: url("cur.png"), auto;
 }
 
 .name{
@@ -200,6 +201,28 @@ body{
 {
   background-color: rgb(115 6 255);
 }
+
+/* Track */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #120e16 rgb(115 6 255);
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(115 6 255);
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(115 6 255);
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background-color: #120e16;
+}
+
 
 .card{
   background-color: rgba(255, 255, 255, 0.06);

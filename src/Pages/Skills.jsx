@@ -84,7 +84,7 @@ function Skills() {
                                 <img src={MDBIcon} alt="HTML"  />
                                 <img src={SQLIcon} alt="HTML" />
                                 <img src={OracleIcon} alt="HTML" className="" />
-                                <img src={BCIcon} alt="HTML" className="" />
+                                {/* <img src={BCIcon} alt="HTML" className="" /> */}
                             </div>                                  
                         </div>
                         <div className="md:-ml-20">
