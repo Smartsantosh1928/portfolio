@@ -8,7 +8,6 @@ import Contact from "./Pages/Contact"
 import Loading from "./Pages/Loader"
 import Aos from "aos"
 import { useEffect, useState } from "react"
-import AnimatedCursor from "react-animated-cursor"
 
 function App() {
 
@@ -18,11 +17,15 @@ function App() {
     setLoading(false)
   }
 
-  useEffect(() => { 
+  useEffect(() => {
     const loader = setTimeout(() => {
       setLoading(false)
     }, 3000)
-    Aos.init()
+    Aos.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true
+    })
     return () => {
       clearTimeout(loader)
     }
@@ -31,39 +34,24 @@ function App() {
 
   return(
     <>
-      <AnimatedCursor 
-        innerSize={8} 
-        innerScale={1}
-        showSystemCursor={true}
-        outerSize={50}
-        outerAlpha={0}
-        hasBlendMode={true}
-        trailingSpeed={10}
-        clickables={['.link']}
-        innerStyle={{
-          backgroundColor: '#58f3f3',
-          mixBlendMode: 'difference'
-        }}
-        outerStyle={{
-          border: '2.5px solid #58f3f3'
-        }}
-      />
-      <div className="bg-[#120e16] overflow-x-hidden">
+      <div className="bg-[#0A0A0F] overflow-x-hidden">
         {
-          loading ? 
+          loading ?
           <Loading/>
-          : <><Header/>
+          : <>
+          <Header/>
           <Main/>
           <About/>
           <Skills/>
           <Certifications/>
           <Projects/>
-          <Contact/></>
+          <Contact/>
+          </>
         }
-        
+
       </div>
     </>
-  )  
+  )
 }
 
 export default App

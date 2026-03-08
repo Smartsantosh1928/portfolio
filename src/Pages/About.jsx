@@ -1,45 +1,22 @@
-import { useEffect, useState,useRef } from "react";
-import EducationLogo from "/about/edu.png";
-import Programming from "/about/program.png";
-import Projects from "/about/project.png";
-import Tools from "/about/tools.png";
-import Certification from "/about/cert.png";
-import Leetcode from "/about/leetcode.png";
+import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 
 function About() {
 
-    const [ originalText, setOriginalText ] = useState("Greetings and a warm welcome!✨ I am thrilled to have you here to read my short and crisp introduction, exploring my creative space and professional journey. This portfolio is a reflection of my passion, dedication, and love for what I do. 😄 On 2004 , 03 of March a very passionate boy was born to the couples Solomon Raj and Thanga Pushpum . Yes , Your guess is correct, that's none other than myself. Everyone calls me Santosh and that's my Good name . Basically I'm a 2k kid . I was born and brought up in Sivakasi . And I had B.sc degree in ANJAC , Sivakasi and still in process of exploring .I followe my passion everyday. And I began my new venture of developing my skills. As an initiative, In My college we started a new company named Unijac Technologies by students . And I believe Hardships prepare ordinary people for an extraordinary destiny. But I never ever tried to give up. Basically I'm shrewd in investment so I invested in knowledge to get the best interest.")
+    const [ originalText ] = useState("Hey there! I'm Santosh, an iOS Developer at Zoho Corporation, based in Tenkasi. I work on Zoho Cliq — a powerful team communication app used by millions worldwide. With close to 2 years of hands-on experience building native iOS applications, I specialize in Swift, SwiftUI, and UIKit to create intuitive, performant, and pixel-perfect mobile experiences. My journey started as a B.Sc student at ANJAC, Sivakasi, where I fell in love with building things that people actually use. From co-founding Unijac Technologies as a student initiative to now shipping production-grade iOS features at Zoho, I believe in writing clean code that makes a real difference. When I'm not coding, you'll find me exploring new Apple frameworks, contributing to the iOS community, or fine-tuning app interactions to feel just right.")
     const [ text, setText ] = useState("")
     const [ readMore, SetReadMore ] = useState(false)
-    const [ data, setData ] = useState([])
-    const [ solutions, setSolutions ] = useState([])
+
+    const data = [
+        { count: 10000, suffix: "+", text: "Lines of Swift Code", icon: "{ }" },
+        { count: 500, suffix: "+", text: "Git Commits", icon: "Git" },
+        { count: 15, suffix: "+", text: "iOS Frameworks Used", icon: "SDK" },
+        { count: 100, suffix: "+", text: "Features Shipped", icon: "App" },
+        { count: 6, suffix: "+", text: "Programming Languages", icon: "< />" },
+        { count: 1000, suffix: "+", text: "Cups of Coffee", icon: "Cof" },
+    ]
 
     useEffect(() => {
-        fetch("https://leetcodestats.cyclic.app/smartsantosh1928",{
-            method : "GET",
-            headers : {
-                "Content-Type" : "application/json"
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            setSolutions(data.totalSolved-1);
-        })
-        .catch(err => console.log(err))
-    },[])
-
-    useEffect(() => {
-        setData(() => {
-            return [
-                { image : EducationLogo, count : 14, text : "Yrs of Education" },
-                { image : Projects, count : 5, text : "Projects" },
-                { image : Certification, count : 10, text : "Certifications" },
-                { image : Tools, count : 30, text : "Tools" },
-                { image : Programming, count : 8, text : "Programming Languages" },
-                { image : Leetcode, count : solutions || 35, text : "Leetcode Solutions" },
-            ]
-        })
         if(!readMore){
             const trun = originalText.slice(0,290);
             setText(trun);
@@ -47,38 +24,74 @@ function About() {
         else{
             setText(originalText)
         }
-    },[readMore,solutions])
+    },[readMore])
 
-    return ( 
+    return (
         <>
-        <div className="h-auto w-full pb-10 text-white name flex justify-center items-center flex-col md:flex-row">
-            <div className="md:w-[40%] ml-8 md:ml-20">
-                <div className="flex flex-col gap-5">
-                    <span>About</span>
-                    <span className="font-bold text-4xl text-[#8b31ff]">MySelf</span>
+        <section id="ABOUT" className="py-24 md:py-32 relative">
+            {/* Background accents */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#007AFF] rounded-full opacity-[0.02] blur-[100px]"></div>
+
+            <div className="max-w-7xl mx-auto px-6">
+                {/* Section Header */}
+                <div className="mb-16" data-aos="fade-up">
+                    <span className="text-[#007AFF] text-sm font-semibold tracking-widest uppercase">About</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mt-2">Who I Am</h2>
+                    <div className="w-16 h-1 bg-[#007AFF] rounded-full mt-4"></div>
                 </div>
-                <h6 className="md:mt-5 -ml-8 md:ml-0 text-justify text-xl md:pr-20 p-8 md:p-0">
-                    {text}
-                    <span className="cursor-pointer text-[#52317e] hover:text-[#8b31ff]" onClick={() => SetReadMore(!readMore) }>{readMore? "...Read Less" : "Read More..."}</span>
-                </h6>
-                <div className="mt-5 md:mt-10 w-full h-[40%] pb-10 md:pb-0 flex justify-center md:items-center items-start">
-                    <a href="https://ilaforplacements.com/api/pdf/s-santosh" target="_blank">
-                        <button className="glow border-[#8b31ff] border px-5 py-2 rounded-lg">Get My Resume</button>
-                    </a>
-                </div>
-            </div>
-            <div className="md:flex justify-evenly items-center w-[60%]">
-                <div className="grid grid-cols-2 gap-8 w-full">
-                    {data.map((e,i) => <div key={i} className="w-full flex justify-center items-center flex-col">
-                        <img src={e.image} alt="Education Qualification" className="w-16 h-16" />
-                        <div className="text-center">
-                            <CountUp end={e.count} duration={2.5} enableScrollSpy scrollSpyDelay="1000" className="text-lg md:text-2xl" />
-                            <span className="text-lg md:text-2xl">+ {e.text}</span>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                    {/* Left - About Text */}
+                    <div data-aos="fade-right">
+                        <p className="text-gray-300 text-lg leading-relaxed">
+                            {text}
+                            <span className="cursor-pointer text-[#007AFF] hover:text-[#5AC8FA] transition-colors ml-1" onClick={() => SetReadMore(!readMore) }>{readMore? "Read Less" : "Read More..."}</span>
+                        </p>
+
+                        <div className="mt-8 flex flex-col gap-4">
+                            <div className="flex items-center gap-3">
+                                <div className="w-2 h-2 bg-[#007AFF] rounded-full"></div>
+                                <span className="text-gray-400"><span className="text-white font-medium">Role:</span> iOS Developer</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="w-2 h-2 bg-[#34C759] rounded-full"></div>
+                                <span className="text-gray-400"><span className="text-white font-medium">Company:</span> Zoho Corporation</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="w-2 h-2 bg-[#5AC8FA] rounded-full"></div>
+                                <span className="text-gray-400"><span className="text-white font-medium">Product:</span> Zoho Cliq</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="w-2 h-2 bg-[#FF9500] rounded-full"></div>
+                                <span className="text-gray-400"><span className="text-white font-medium">Location:</span> Tenkasi, Tamil Nadu</span>
+                            </div>
                         </div>
-                    </div>)}
+
+                        <div className="mt-8">
+                            <a href="#CONTACT">
+                                <button className="px-8 py-3 bg-transparent border border-[#007AFF] text-[#007AFF] rounded-full font-semibold hover:bg-[#007AFF] hover:text-white transition-all duration-300">
+                                    Get In Touch
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Right - Stats Grid */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4" data-aos="fade-left">
+                        {data.map((e,i) => (
+                            <div key={i} className="ios-card p-5 rounded-2xl text-center group">
+                                <div className="text-[#007AFF] text-xs font-mono mb-2 opacity-50 group-hover:opacity-100 transition-opacity">{e.icon}</div>
+                                <div className="text-white text-2xl md:text-3xl font-bold">
+                                    <CountUp end={e.count} duration={2.5} enableScrollSpy scrollSpyDelay={500} separator="," />
+                                    <span className="text-[#007AFF]">{e.suffix}</span>
+                                </div>
+                                <span className="text-gray-400 text-sm mt-1 block">{e.text}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
         </>
      );
 }
